@@ -46,6 +46,7 @@ export const actionGetAllUsers = () => async (dispatch, getState) => {
 
   try {
     const { data } = await axios.get(`${APP_URI}/users`);
+    console.log("data", data);
     const arrModelUsers = data.data.map(objUser => new ModelUser(objUser));
 
     dispatch(actionFetchUsersAllSuccess(arrModelUsers));

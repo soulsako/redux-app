@@ -1,45 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './App.css';
 import { actionGetAllUsers } from './actions/actionUser';
-import { getAllUsers } from './reducers/reducerUser';
+import { getAllUsers, getUsersLoading, getUsersError, getUsersErrorMessage } from './reducers/reducerUser';
 import { ModelUser } from './models';
 
 function App({
-  arrModelUsers,
+  objModelUsers,
+  bIsLoading,
+  bIsError,
   fetchAllUsers,
+  strErrorMessage,
 }) {
-  const [bIsLoading, setLoading] = useState(false);
-  const [strErrorMessage, setErrorMessage] = useState('');
-
-  const onFetchUsersHandler = () => {
-    fetchAllUsers()
-    .catch((strErrorMessage) => setErrorMessage(strErrorMessage))
-    .finally(() => setLoading(false));
-  };
+  useEffect(() => {
+    fetchAllUsers();
+  },[]);
 
   if (bIsLoading) {
     return <div>Loading...</div>
   }
 
-  if (!bIsLoading && strErrorMessage) {
+  if (!bIsLoading && bIsError) {
     return <p>{strErrorMessage}</p>
   }
+
+  console.log("objModelUsers", objModelUsers);
 
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={onFetchUsersHandler}>Fetch All Users</button>
         <div>
-            {arrModelUsers ? arrModelUsers.map(objUser => (
+            {objModelUsers && Object.values(objModelUsers).map(objUser => (
               <ul key={objUser.getField(ModelUser.FIELD_STR_ID)}>
                 <li>{objUser.getField(ModelUser.FIELD_STR_FIRST_NAME)}</li>
                 <li>{objUser.getField(ModelUser.FIELD_STR_LAST_NAME)}</li>
                 <li>{objUser.getField(ModelUser.FIELD_STR_EMAIL)}</li>
-                <li>{objUser.getField(ModelUser.FIELD_STR_ROLE)}</li>
+                <li>{objUser.getField(ModelUser.FIELD_STR_AVATAR)}</li>
               </ul>
-            )) : null}
+            ))}
         </div>
       </header>
     </div>
@@ -47,18 +46,21 @@ function App({
 }
 
 App.defaultProps = {
-  arrModelUsers: null,
+  objModelUsers: null,
 };
 
 App.propTypes = {
-  arrModelUsers: PropTypes.arrayOf(
+  objModelUsers: PropTypes.arrayOf(
     PropTypes.instanceOf(ModelUser),
   ),
   fetchAllUsers: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  arrModelUsers: getAllUsers(state),
+  objModelUsers: getAllUsers(state),
+  bIsLoading: getUsersLoading(state),
+  bIsError: getUsersError(state),
+  strErrorMessage: getUsersErrorMessage(state)
 });
 
 const mapDispatchToProps = {

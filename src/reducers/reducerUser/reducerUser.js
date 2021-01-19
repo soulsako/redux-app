@@ -44,7 +44,7 @@ export const reducerUser = (state = objInitialState, { payload, type }) => {
         bIsLoading: false,
         objUsers: payload.arrModelUsers.reduce((objAccum, modelUser) => ({
           ...objAccum,
-          [ModelUser.FIELD_STR_ID]: modelUser
+          [modelUser.getField(ModelUser.FIELD_STR_ID)]: modelUser
         }), {}),
       }
       default:
@@ -53,3 +53,9 @@ export const reducerUser = (state = objInitialState, { payload, type }) => {
 };
 
 export const getAllUsers = state => state.reducerUser.objUsers;
+
+export const getUsersLoading = state => state.reducerUser.bIsLoading;
+
+export const getUsersError = state => state.reducerUser.bIsError;
+
+export const getUsersErrorMessage = state => state.reducerUser.strErrorMessage;
