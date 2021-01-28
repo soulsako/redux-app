@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { ModelUser } from "../../models";
 
 export const APP_URI = "https://reqres.in/api";

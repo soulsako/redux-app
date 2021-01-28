@@ -1,16 +1,18 @@
 /* eslint-disable prettier/prettier */
-import React from "react";
+import "./App.css";
+
+import LuxonUtils from "@date-io/luxon";
+import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
-import LuxonUtils from "@date-io/luxon";
 import { MuiPickersUtilsProvider } from "material-ui-pickers";
-import Button from "@material-ui/core/Button";
 import { SnackbarProvider } from "notistack";
-import { Theme } from "./MaterialUI";
+import React from "react";
+
 import { ErrorBoundary } from "./components";
 import ErrorView from "./components/ErrorBoundary/ErrorView";
-import "./App.css";
 import Test from "./components/Test";
+import { Theme } from "./MaterialUI";
 
 function App() {
   const notistackRef = React.useRef();

@@ -1,5 +1,6 @@
-import { darken, lighten } from "@material-ui/core/styles/colorManipulator";
 import { createMuiTheme } from "@material-ui/core/styles";
+import { darken, lighten } from "@material-ui/core/styles/colorManipulator";
+
 import { searchColor } from "../Palette";
 
 export const objPrimaryTheme = {

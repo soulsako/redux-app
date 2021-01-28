@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import { useSnackbar } from "notistack";
+import React, { useEffect } from "react";
 
 const Test = () => {
   const { enqueueSnackbar } = useSnackbar();

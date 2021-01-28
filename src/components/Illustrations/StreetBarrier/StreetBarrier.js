@@ -1,4 +1,5 @@
 import React from "react";
+
 import useStyles from "./StreetBarrier.style";
 
 const StreetBarrier = () => {

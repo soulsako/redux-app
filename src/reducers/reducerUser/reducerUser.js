@@ -1,6 +1,3 @@
-/* eslint-disable no-duplicate-case */
-/* eslint-disable default-case */
-import { ModelUser } from "../../models";
 import {
   // CREATE_USER_BEGIN,
   // CREATE_USER_FAIL,
@@ -15,6 +12,7 @@ import {
   // DELETE_USER_FAIL,
   // DELETE_USER_SUCCESS,
 } from "../../actions/actionUser";
+import { ModelUser } from "../../models";
 
 const objInitialState = {
   objUsers: {},

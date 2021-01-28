@@ -1,11 +1,12 @@
-import PropTypes from "prop-types";
-import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import useStyles from "./ErrorView.style";
+import PropTypes from "prop-types";
+import React from "react";
+
+import StreetBarrier from "../../Illustrations/StreetBarrier";
 import Background from "../Background";
 import EmptyStateMessage from "../EmptyStateMessage";
-import StreetBarrier from "../../Illustrations/StreetBarrier";
+import useStyles from "./ErrorView.style";
 
 const ErrorView = ({ nstrErrorCode, nstrErrorMessage, nstrErrorTitle }) => {
   const classes = useStyles();
