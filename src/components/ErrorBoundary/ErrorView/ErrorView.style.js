@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
  * @param {object} theme MUI theme
  * @return {object} Component styles
  */
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
 
   '@media (max-width: 600px)': {
     card: {
@@ -50,6 +50,6 @@ const useStyles = makeStyles({
   illustration: {
     margin: '16px 26px',
   },
-});
+}));
 
 export default useStyles;

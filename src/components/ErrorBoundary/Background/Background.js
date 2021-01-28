@@ -1,8 +1,8 @@
 import React from 'react';
 import useStyles from './Background.style';
-import IconCenter from '../../assets/images/bg/Center.svg';
-import IconLeft from '../../assets/images/bg/Left.svg';
-import IconRight from '../../assets/images/bg/Right.svg';
+import IconCenter from '../../../assets/images/bg/Center.svg';
+import IconLeft from '../../../assets/images/bg/Left.svg';
+import IconRight from '../../../assets/images/bg/Right.svg';
 
 const strEncodedIconCenter = encodeURIComponent(IconCenter);
 const strEncodedIconLeft = encodeURIComponent(IconLeft);
