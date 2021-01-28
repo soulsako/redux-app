@@ -1,26 +1,26 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    justifyContent: 'center',
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+    justifyContent: "center",
     padding: theme.spacing.unit * 2,
-    width: '100%',
+    width: "100%",
   },
   errorCode: {
     color: theme.palette.error.light,
-    fontSize: '0.85rem',
+    fontSize: "0.85rem",
     padding: `${theme.spacing.unit}px 0`,
   },
   illustration: {
-    '& > svg': {
-      height: 'auto',
-      width: props => props.intSize,
+    "& > svg": {
+      height: "auto",
+      width: (props) => props.intSize,
     },
-    display: 'flex',
+    display: "flex",
     marginBottom: `${theme.spacing.unit * 2}px`,
     marginTop: `${theme.spacing.unit * 2}px`,
   },

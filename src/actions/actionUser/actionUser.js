@@ -1,11 +1,11 @@
-import axios from 'axios';
-import { ModelUser } from '../../models';
+import axios from "axios";
+import { ModelUser } from "../../models";
 
-export const APP_URI = 'https://reqres.in/api';
+export const APP_URI = "https://reqres.in/api";
 
-export const FETCH_ALL_USERS_BEGIN = 'CREATE_USER_BEGIN';
-export const FETCH_ALL_USERS_FAIL = 'CREATE_USER_FAIL';
-export const FETCH_ALL_USERS_SUCCESS = 'CREATE_USER_SUCCESS';
+export const FETCH_ALL_USERS_BEGIN = "CREATE_USER_BEGIN";
+export const FETCH_ALL_USERS_FAIL = "CREATE_USER_FAIL";
+export const FETCH_ALL_USERS_SUCCESS = "CREATE_USER_SUCCESS";
 
 // export const CREATE_USER_BEGIN = 'CREATE_USER_BEGIN';
 // export const CREATE_USER_FAIL = 'CREATE_USER_FAIL';
@@ -23,36 +23,34 @@ export const FETCH_ALL_USERS_SUCCESS = 'CREATE_USER_SUCCESS';
  *  FETCH ALL USERS
  */
 export const actionFetchUsersAllBegin = () => ({
-  type: FETCH_ALL_USERS_BEGIN, 
+  type: FETCH_ALL_USERS_BEGIN,
 });
 
 export const actionFetchUsersAllFail = (strErrorMessage) => ({
   type: FETCH_ALL_USERS_FAIL,
   payload: {
-    strErrorMessage
-  }
+    strErrorMessage,
+  },
 });
 
 export const actionFetchUsersAllSuccess = (arrModelUsers) => ({
   type: FETCH_ALL_USERS_SUCCESS,
   payload: {
-    arrModelUsers
+    arrModelUsers,
   },
 });
 
-export const actionGetAllUsers = () => async (dispatch, getState) => {
-
+export const actionGetAllUsers = () => async (dispatch) => {
   dispatch(actionFetchUsersAllBegin());
 
   try {
     const { data } = await axios.get(`${APP_URI}/users`);
     console.log("data", data);
-    const arrModelUsers = data.data.map(objUser => new ModelUser(objUser));
+    const arrModelUsers = data.data.map((objUser) => new ModelUser(objUser));
 
     dispatch(actionFetchUsersAllSuccess(arrModelUsers));
     return arrModelUsers;
-
-  } catch(error) {
+  } catch (error) {
     dispatch(actionFetchUsersAllFail(error.message));
     throw new Error(error.message);
   }
@@ -62,7 +60,7 @@ export const actionGetAllUsers = () => async (dispatch, getState) => {
  *  CREATE A USER
  */
 // export const actionCreateUserBegin = () => ({
-//   type: CREATE_USER_BEGIN, 
+//   type: CREATE_USER_BEGIN,
 // });
 
 // export const actionCreateUserFail = (strErrorMessage) => ({
@@ -100,7 +98,7 @@ export const actionGetAllUsers = () => async (dispatch, getState) => {
  *  UPDATE A USER
  */
 // export const actionUpdateUserBegin = () => ({
-//   type: UPDATE_USER_BEGIN, 
+//   type: UPDATE_USER_BEGIN,
 // });
 
 // export const actionUpdateUserFail = (strErrorMessage) => ({
@@ -139,7 +137,7 @@ export const actionGetAllUsers = () => async (dispatch, getState) => {
  *  DELETE A USER
  */
 // export const actionDeleteUserBegin = () => ({
-//   type: DELETE_USER_BEGIN, 
+//   type: DELETE_USER_BEGIN,
 // });
 
 // export const actionDeleteUserFail = (strErrorMessage) => ({

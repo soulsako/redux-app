@@ -1,5 +1,3 @@
-import ModelUser from './ModelUser';
+import ModelUser from "./ModelUser";
 
-export {
-  ModelUser,
-};
+export { ModelUser };

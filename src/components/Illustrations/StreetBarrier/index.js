@@ -1,1 +1,1 @@
-export { default } from './StreetBarrier';
+export { default } from "./StreetBarrier";

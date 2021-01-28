@@ -1,19 +1,19 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
-  '@keyframes blink': {
-    '0%': {
+  "@keyframes blink": {
+    "0%": {
       opacity: 0,
     },
-    '50%': {
+    "50%": {
       opacity: 1,
     },
-    '100%': {
+    "100%": {
       opacity: 0,
     },
   },
   animated_light: {
-    animation: 'blink 1s ease infinite',
+    animation: "blink 1s ease infinite",
   },
 });
 

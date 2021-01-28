@@ -1,17 +1,13 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import useStyles from './ErrorView.style';
-import Background from '../Background';
-import EmptyStateMessage from '../EmptyStateMessage';
-import StreetBarrier from '../../Illustrations/StreetBarrier';
+import PropTypes from "prop-types";
+import React from "react";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import useStyles from "./ErrorView.style";
+import Background from "../Background";
+import EmptyStateMessage from "../EmptyStateMessage";
+import StreetBarrier from "../../Illustrations/StreetBarrier";
 
-const ErrorView = ({
-  nstrErrorCode,
-  nstrErrorMessage,
-  nstrErrorTitle,
-}) => {
+const ErrorView = ({ nstrErrorCode, nstrErrorMessage, nstrErrorTitle }) => {
   const classes = useStyles();
   return (
     <div className={classes.container}>
@@ -33,8 +29,9 @@ const ErrorView = ({
 
 ErrorView.defaultProps = {
   nstrErrorCode: null,
-  nstrErrorMessage: 'The application has encountered a critical error and is unable to continue.',
-  nstrErrorTitle: 'Whoops, something went wrong.',
+  nstrErrorMessage:
+    "The application has encountered a critical error and is unable to continue.",
+  nstrErrorTitle: "Whoops, something went wrong.",
 };
 
 ErrorView.propTypes = {

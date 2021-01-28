@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import useStyles from './EmptyStateMessage.style';
-
+import React from "react";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import useStyles from "./EmptyStateMessage.style";
 
 const EmptyStateMessage = ({
   intSize,
@@ -10,7 +9,7 @@ const EmptyStateMessage = ({
   nodeIcon,
   nnodeObject,
   strSubtitle,
-  strTitle
+  strTitle,
 }) => {
   const classes = useStyles({ intSize });
 
@@ -18,21 +17,34 @@ const EmptyStateMessage = ({
     <div className={classes.container}>
       <div className={classes.illustration}>{nodeIcon}</div>
       {null !== strTitle && (
-        <Typography align="center" className={classes.title} color="inherit" variant="h6">
+        <Typography
+          align="center"
+          className={classes.title}
+          color="inherit"
+          variant="h6"
+        >
           {strTitle}
         </Typography>
       )}
       {null !== nnodeObject && <React.Fragment>{nnodeObject}</React.Fragment>}
       {null !== strSubtitle && (
-        <Typography align="center" color="inherit" variant="body1" className={classes.subtitle}>
+        <Typography
+          align="center"
+          color="inherit"
+          variant="body1"
+          className={classes.subtitle}
+        >
           {strSubtitle}
         </Typography>
       )}
       {null !== intErrorCode && (
-        <Typography align="center" color="inherit" variant="caption" className={classes.errorCode}>
-          Error Code:
-          {' '}
-          <b>{intErrorCode}</b>
+        <Typography
+          align="center"
+          color="inherit"
+          variant="caption"
+          className={classes.errorCode}
+        >
+          Error Code: <b>{intErrorCode}</b>
         </Typography>
       )}
     </div>
